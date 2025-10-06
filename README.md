@@ -1,2 +1,2 @@
 Current Home Network
-![Home Network Diagram](Home Network.drawio.pdf)
+![Home Network Diagram]("Home Network.drawio.pdf")
