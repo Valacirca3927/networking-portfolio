@@ -1,4 +1,4 @@
-# Final Problem Description
+# Problem Description
 Hypervisor was crashing because the host machine e1000e driver was pegging the CPU with errors under high transmit load. Potentially incorrect default kernel driver settings.
 
 # Action Plan
@@ -11,10 +11,12 @@ Reload driver, then network stack. Connection loss of about a minute.
 **Verify.** InterruptThrottlingRate should be set to dynamic conservative.  
 `dmesg | grep -i "e1000e" | grep -i "interrupt"`
 
-# Incidents
-## Oct 5, 2025
+# Previous Engineer
+* Replaced NIC, problem unresolved
+
+# Valerie's Work
 #### Docker VM 2 and Containerized Services down, Host Machine Unreachable
-**Note:** This issue has been reoccuring. Case was passed to me by previous engineer after hardware replacement failed to fix the issue.
+**Note:** This issue has been reoccuring.
 
 Initial Issue: Docker VM 2 and associated services show as down in Portainer, unreachable directly. Proxmox GUI reports the VM hung during a backup session and is stuck in that state. Proxmox GUI and ping report the host machine is unreachable. Nebula Sync container reports unhealthy state due to inability to sync the DNS databases to each other.
 
