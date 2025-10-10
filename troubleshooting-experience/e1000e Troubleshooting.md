@@ -33,7 +33,8 @@ A community-suggested workaround disables hardware offloading, but works the CPU
 An alternative workaround is setting the InterruptThrottleRate parameter to dynamically scale down the errors sent to the CPU. Effectiveness will need to be monitored over time, as the issue is intermittent.
 
 Switching heads didn't work to get around the error flood.  
-`sudo dmesg -n 1` worked, enabling further troubleshooting.  
+Stop errors from displaying on terminal:  
+`sudo dmesg -n 1`  
 (This just disables throwing every message at the terminal, it will still be stored in the logs.)
 
 Restart the interface, clearing the errors and re-enabling SSH:  
@@ -42,30 +43,31 @@ Restart the interface, clearing the errors and re-enabling SSH:
 
 Proxmox can see the host machine now, VM still says config locked.
 
-Workaround
+Workaround:  
 `echo "options e1000e InterruptThrottleRate=3" > /etc/modprobe.d/e1000e.conf`
 
-Reload driver
+Reload driver:  
 `modprobe -r e1000e && modprobe e1000e`  
 SSH drops, doesn't reestablish.
 
-Reload networking stack
+Reload networking stack:  
 `systemctl restart networking`  
 SSH connection reestablishes after about a minute.
 
-Verify setting change to dynamic conservative 
+Verify setting change to dynamic conservative:  
 `dmesg | grep -i "e1000e" | grep -i "interrupt"`
 
-Manually unlock the VM
+Manually unlock the VM:  
 `qm unlock 103`  
 Proxmox says VM is running normally. Nebula Sync container reports DNS databases are now synched.
 
-Set up monitor
+Set up monitor:  
 `watch -n 2 'dmesg -T | grep -i "hardware unit hang" | tail -3'`
 
-Trigger backup job  
+Trigger backup job:  
 `vzdump 103 --storage unraid-vm-backup --mode snapshot --compress zstd --bwlimit 716800`
 
 Backup completed successfully, no errors thrown. Proxmox sees backup file in the GUI. All symptoms currently resolved.
 
 Workaround needs validation over time. If issue recurs, next steps can include disabling hardware offloading and accepting the CPU hit to keep services up.
+
