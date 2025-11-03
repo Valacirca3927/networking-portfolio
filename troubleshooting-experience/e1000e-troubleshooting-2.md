@@ -16,11 +16,11 @@ Reboot.
 [Prior context](https://github.com/Valacirca3927/networking-portfolio/blob/main/troubleshooting-experience/e1000e-troubleshooting.md)
 
 # Valerie's Work
-Docker VM hangs with same symptoms as previous case. Host machine e1000e driver crashes, node isolated, services unreachable.
+Docker VM hangs, same symptoms as previous case. Host machine e1000e driver crashes, node isolated, services unreachable.
 
 No known cause. Logs show remote mountpoints unreachable during both incidents.
 
-Accessing mountpoints shows stale file handle. This is a known issue with SMB shares and Linux. Server restarts, uses different inode, clients try to reach inode that no longer exists. 
+Accessing mountpoints shows stale file handle. Known issue with SMB shares and Linux. Server restarts, uses different inode, clients try to reach inode that no longer exists. 
 
 No other events within 48h of driver failure.
 
