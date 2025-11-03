@@ -24,7 +24,7 @@ No other events within 48h of driver failure.
 
 e1000e driver is buggy, nothing else out of ordinary, repeated tx failures likely candidate for driver crashing.
 
-Disabling hardware offloading on transmit is next community approved workaround. Tech Lead has declared undesirable. Finding another workaround.
+Disabling hardware offloading on transmit is next community approved workaround. Tech Lead has declared still undesirable. Finding another workaround.
 
 Clients can use `noserverino` option to keep track of inode values themselves, preventing spoilage.
 
