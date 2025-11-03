@@ -10,8 +10,6 @@ sudo pvesm set unraid-vm-backup --options noserverino
 sudo reboot
 ```
 
-Reboot.
-
 # Previous Casework
 [Prior context](https://github.com/Valacirca3927/networking-portfolio/blob/main/troubleshooting-experience/e1000e-troubleshooting.md)
 
