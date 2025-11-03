@@ -71,3 +71,6 @@ Backup completed successfully, no errors thrown. Proxmox sees backup file in the
 
 Workaround needs validation over time. If issue recurs, next steps can include disabling hardware offloading and accepting the CPU hit to keep services up.
 
+Issue does recur and troubleshooting continues [here.](https://github.com/Valacirca3927/networking-portfolio/blob/main/troubleshooting-experience/e1000e-troubleshooting-2.md)
+
+
