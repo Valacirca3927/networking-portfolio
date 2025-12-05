@@ -55,7 +55,7 @@ Handshake completion is inconsistent. Why?
 
 In packet captures, the ONT is now responding every time, but the router doesn't always continue the handshake. Why?
 
-The ONT responses are tagged as being part of VLAN 0. Mikrotik routers have notably inconsistent handling of packets tagged with VLAN 0.
+The ONT responses have a VLAN tag of 0. Mikrotik routers have known inconsistent handling of packets tagged as VLAN 0.
 
 WAN interface gets grouped into a bridge (logical) interface by itself. Bridge is set to strip the VLAN tags from all ingress packets. 802.1x starts working immediately and consistently.
 
