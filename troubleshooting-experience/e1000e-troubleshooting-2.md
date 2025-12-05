@@ -2,7 +2,7 @@
 Follow-up from [previous case](https://github.com/Valacirca3927/networking-portfolio/blob/main/troubleshooting-experience/e1000e-troubleshooting.md), Proxmox nodes still becoming isolated from network due to host NIC driver hanging
 
 # Action Plan
-Change host node configs to manage remote mountpoint inodes themselves.  
+Change host node configs to manage remote mountpoint inodes themselves.  This resolves a separate broken mountpoint issue as well.
 
 ```
 sudo pvesm set unraid-isos --options noserverino  
